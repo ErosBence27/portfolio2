@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>FrekiSzámoló</title>
+</head>
+<body>
+    <details>
+        <summary></summary>
+        <nav class="menu">
+          <a href="index.html">Főoldal</a>
+          <a href="szamold.html">1. Számitás</a>
+          <a href="astabil.html">AstabilMultivibrátor</a>
+          <a href="szerencsejatek.html">SzerencseJáték</a>
+          <a href="tesla.html">Tesla Tekercs</a>
+        </nav>
+    </details>
+    <br>
+
+
+    <h3>FrekiSzámoló</h3>
+
+    <img src="img/Rezonancia+frekvencia.jpg" alt="rezofreki képlet" width="300px">
+
+    <form action="">
+        <label for="induk">Add meg az induktivitás értékét(L): </label>
+        <input type="number" name="induk" id="induk"> uH <br><br
+        <label for="capac">Add meg a kapacitás értékét (C): </label>
+        <input type="number" name="capac" id="capac"> uF <br><br>
+        <input style="color: blue;" type="button" onclick="szamold()" value="ENTER">
+        <br>
+    </form>
+     
+    <span>Freki = </span>
+    <span id="fo"></span>
+    <span>Hz</span>
+    
+
+    <script>
+        function szamold(){
+            let L = parseInt(induk.value) / 1000000;
+            let C = parseInt(capac.value) / 1000000;
+            let freki = L* C ;
+            freki = Math.sqrt(freki);
+            freki = 2 * freki;
+            freki = Math.PI * freki;
+            freki = 1 / freki;
+            document.getElementById('fo').innerHTML = freki;
+        }
+    </script>
+    
+
+</body>
+</html>
